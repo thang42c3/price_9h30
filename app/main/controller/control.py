@@ -37,5 +37,5 @@ def table():
 
 @app.route('/download_file', methods = ['GET', 'POST'])
 def download_file():
-    path = r'..\\EMA20_B30_{0}.csv'.format(str(date.today()).replace('-',""))
+    path = r'EMA20_B30_{0}.csv'.format(str(date.today()).replace('-',""))
     return send_file(path, as_attachment=True, cache_timeout=0)
