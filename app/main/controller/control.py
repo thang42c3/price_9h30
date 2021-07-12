@@ -18,8 +18,8 @@ mycol = mydb["price_9h_30"]
 def table():
     price_stocks = mycol.find().sort("date", -1)
     text_all = re.compile('.*?')
-    if os.path.exists(r'app\\EMA20_B30_{0}.csv'.format(text_all)):
-        os.remove(r'app\\EMA20_B30_{0}.csv'.format(text_all))
+    if os.path.exists(r'EMA20_B30_{0}.csv'.format(text_all)):
+        os.remove(r'EMA20_B30_{0}.csv'.format(text_all))
 
     rows = [['symbol','date','time', 'price','holding','change']]
 
@@ -28,7 +28,7 @@ def table():
         row = [price_stock['code'], price_stock['date'], price_stock['time'], price_stock['price'], price_stock['volume'], price_stock['up_or_down']]
         rows.append(row)
 
-    with open(r'app\\EMA20_B30_{0}.csv'.format(str(date.today()).replace('-',"")), 'a', encoding='utf-8') as f:
+    with open(r'EMA20_B30_{0}.csv'.format(str(date.today()).replace('-',"")), 'a', encoding='utf-8') as f:
         write = csv.writer(f)
         write.writerows(rows)
     price_stocks = mycol.find().sort("date", -1)
@@ -37,5 +37,5 @@ def table():
 
 @app.route('/download_file', methods = ['GET', 'POST'])
 def download_file():
-    path = r'EMA20_B30_{0}.csv'.format(str(date.today()).replace('-',""))
+    path = r'..//EMA20_B30_{0}.csv'.format(str(date.today()).replace('-',""))
     return send_file(path, as_attachment=True, cache_timeout=0)
