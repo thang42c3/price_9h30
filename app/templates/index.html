@@ -84,17 +84,30 @@ body {
     <h1 class="h2 mb-3 fw-normal">THÔNG TIN GIÁ LÚC 9H30</h1>
 
 
+  <div class="my-3 p-3 bg-body rounded shadow-sm">
+      <div class="d-flex text-muted pt-3">
+
+
+          <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+        <div class="d-flex justify-content-between">
+          <strong class="text-gray-dark" >  Giá cổ phiếu lúc 9h30 </strong>
+          <a href="/download_file" class="btn btn-primary">Download file</a>
+        </div>
+      </div>
+    </div>
+</div>
+
 <div class="table-responsive-md">
 <table class="table" align="centre">
   <thead>
     <tr>
 
-      <th scope="col">Code</th>
+      <th scope="col">Symbol</th>
       <th scope="col">Date</th>
       <th scope="col">Time</th>
-        <th scope="col">Volume</th>
         <th scope="col">Price</th>
-        <th scope="col">Up_or_Down</th>
+        <th scope="col">Holding</th>
+        <th scope="col">Change</th>
     </tr>
   </thead>
 
@@ -104,8 +117,8 @@ body {
       <td>{{price_stock['code']}}</td>
       <td>{{price_stock['date']}}</td>
                      <td>{{price_stock['time']}}</td>
-                     <td>{{price_stock['volume']}}</td>
-                           <td>{{price_stock['price']}}</td>
+                     <td>{{price_stock['price']}}</td>
+                           <td>{{price_stock['volume']}}</td>
                      <td>{{price_stock['up_or_down']}}</td>
     </tr>
 
